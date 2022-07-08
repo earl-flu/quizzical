@@ -11,8 +11,12 @@ export default function Quiz(props) {
 
   //call api
   useEffect(() => {
+    const {trivia_category, trivia_difficulty, trivia_amount} = props.formData;
+    const categoryParam = trivia_category === "any" ? '' : `&category=${trivia_category}`;
+    const difficultyParam = trivia_difficulty === "any" ? '' : `&difficulty=${trivia_difficulty}`;
+    
     const endpoint =
-      "https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple";
+      `https://opentdb.com/api.php?amount=${trivia_amount}${categoryParam}${difficultyParam}&type=multiple`;
 
     fetch(endpoint)
       .then((res) => res.json())

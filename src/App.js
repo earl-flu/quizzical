@@ -6,7 +6,19 @@ import Welcome from "./components/Welcome";
 
 export default function App() {
   const [isGameStarted, setIsGameStarted] = useState(false);
+  const [formData, setFormData] = useState({
+    trivia_amount: 5,
+    trivia_category: "any",
+    trivia_difficulty: "hard",
+  });
 
+  function handleFormChange(e) {
+    const {value, name} = e.target;
+    setFormData(prevFormData => {
+      return {...prevFormData, [name]: value}
+    })
+  }
+  console.log(formData)
   function handleGameStart() {
     setIsGameStarted((previsGameStarted) => !previsGameStarted);
   }
@@ -15,7 +27,15 @@ export default function App() {
     <div className="container">
       <img src={topImage} className="blob1" />
       <img src={bottomImage} className="blob2" />
-      {!isGameStarted ? <Welcome handleGameStart={handleGameStart} /> : <Quiz handleGameStart={handleGameStart}/>}
+      {!isGameStarted ? (
+        <Welcome
+          handleGameStart={handleGameStart}
+          handleFormChange={handleFormChange}
+          formData={formData}
+        />
+      ) : (
+        <Quiz formData={formData} handleGameStart={handleGameStart} />
+      )}
     </div>
   );
 }
