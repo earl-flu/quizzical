@@ -68,7 +68,7 @@ export default function Welcome(props) {
           </select>
         </div>
       </div>
-      <button className="button" onClick={props.handleGameStart}>
+      <button className="button" onClick={() => props.setIsGameStarted(true)}>
         Start Quiz
       </button>
     </div>

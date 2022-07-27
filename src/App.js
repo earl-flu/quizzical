@@ -1,8 +1,8 @@
 import { useState } from "react";
 import topImage from "./images/blob1.png";
 import bottomImage from "./images/blob2.png";
-import Quiz from "./components/Quiz";
-import Welcome from "./components/Welcome";
+import Quiz from "./pages/Quiz";
+import Welcome from "./pages/Welcome";
 
 export default function App() {
   const [isGameStarted, setIsGameStarted] = useState(false);
@@ -13,15 +13,12 @@ export default function App() {
   });
 
   function handleFormChange(e) {
-    const {value, name} = e.target;
-    setFormData(prevFormData => {
-      return {...prevFormData, [name]: value}
-    })
+    const { value, name } = e.target;
+    setFormData((prevFormData) => {
+      return { ...prevFormData, [name]: value };
+    });
   }
-  console.log(formData)
-  function handleGameStart() {
-    setIsGameStarted((previsGameStarted) => !previsGameStarted);
-  }
+  console.log(formData);
 
   return (
     <div className="container">
@@ -29,12 +26,12 @@ export default function App() {
       <img src={bottomImage} className="blob2" />
       {!isGameStarted ? (
         <Welcome
-          handleGameStart={handleGameStart}
+          setIsGameStarted={setIsGameStarted}
           handleFormChange={handleFormChange}
           formData={formData}
         />
       ) : (
-        <Quiz formData={formData} handleGameStart={handleGameStart} />
+        <Quiz formData={formData} setIsGameStarted={setIsGameStarted} />
       )}
     </div>
   );
