@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { decode } from "html-entities";
 import { nanoid } from "nanoid";
 import QuestionsList from "../components/QuestionsList";
-import Loader from "../components/Loader"
+import Loader from "../components/Loader";
 
 export default function Quiz(props) {
   const [questions, setQuestions] = useState([]);

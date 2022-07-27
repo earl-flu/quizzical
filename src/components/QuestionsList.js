@@ -3,7 +3,6 @@ import { decode } from "html-entities";
 import cx from "classnames";
 
 const QuestionList = ({ questions, isGameOver, selectAnswer }) => {
-
   // creates the question & answers element
   const questionsListElement = questions.map((qn) => {
     const question = decode(qn.question);
@@ -32,7 +31,9 @@ const QuestionList = ({ questions, isGameOver, selectAnswer }) => {
     return (
       <div className="quiz" key={qn.id}>
         <p className="quiz__question">{question}</p>
-        <div className="quiz__answers" data-question-id={qn.id}>{answerList}</div>
+        <div className="quiz__answers" data-question-id={qn.id}>
+          {answerList}
+        </div>
       </div>
     );
   });
