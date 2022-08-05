@@ -12,7 +12,6 @@ export default function Quiz(props) {
 
   //call api
   useEffect(() => {
-    console.log(props.formData);
     const { trivia_category, trivia_difficulty, trivia_amount } =
       props.formData;
     const categoryParam =
