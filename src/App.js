@@ -21,8 +21,8 @@ export default function App() {
 
   return (
     <div className="container">
-      <img src={topImage} className="blob1" />
-      <img src={bottomImage} className="blob2" />
+      <img alt="blob1" src={topImage} className="blob1" />
+      <img alt="blob2" src={bottomImage} className="blob2" />
       {!isGameStarted ? (
         <Welcome
           setIsGameStarted={setIsGameStarted}
