@@ -9,8 +9,10 @@ export default function Quiz(props) {
   const [isAllAnswered, setIsAllAnswered] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
   const [score, setScore] = useState(0);
+
   //call api
   useEffect(() => {
+    console.log(props.formData);
     const { trivia_category, trivia_difficulty, trivia_amount } =
       props.formData;
     const categoryParam =
@@ -26,6 +28,7 @@ export default function Quiz(props) {
         const questionsData = mapArr([...data.results]);
         setQuestions(questionsData);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //setting the array of object structure
@@ -51,6 +54,7 @@ export default function Quiz(props) {
 
   useEffect(() => {
     handleIsAllAnswered();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [questions]);
 
   //watch when answer is clicked
@@ -124,7 +128,9 @@ export default function Quiz(props) {
 
       <div className="quiz__btn-container">
         {isGameOver && (
-          <p className="quiz__score">You scored {score}/{questions.length} correct answers</p>
+          <p className="quiz__score">
+            You scored {score}/{questions.length} correct answers
+          </p>
         )}
         {renderButton()}
       </div>
