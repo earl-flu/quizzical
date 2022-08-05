@@ -9,7 +9,6 @@ export default function Quiz(props) {
   const [isAllAnswered, setIsAllAnswered] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
   const [score, setScore] = useState(0);
-  console.log(questions);
   //call api
   useEffect(() => {
     const { trivia_category, trivia_difficulty, trivia_amount } =
@@ -66,11 +65,8 @@ export default function Quiz(props) {
   }
 
   function checkAnswers() {
-    //if has blank answer then return
     if (!isAllAnswered) return;
-    //set isGameOver = true
     setIsGameOver(true);
-    //set score
     handleSetScore();
   }
 
@@ -128,7 +124,7 @@ export default function Quiz(props) {
 
       <div className="quiz__btn-container">
         {isGameOver && (
-          <p className="quiz__score">You scored {score}/5 correct answers</p>
+          <p className="quiz__score">You scored {score}/{questions.length} correct answers</p>
         )}
         {renderButton()}
       </div>

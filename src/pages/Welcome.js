@@ -2,7 +2,9 @@ export default function Welcome(props) {
   return (
     <div className="quizzical">
       <h1 className="quizzical__title">Quizzical</h1>
-      <p className="quizzical__subtext">Lorem ipsum dolor sit amet</p>
+      <p className="quizzical__subtext">
+        Lorem ipsum dolor sit amet norben tu sok lub ot ke dyeld
+      </p>
       <div className="quizzical___form_options">
         <div className="form_group">
           <label htmlFor="trivia_amount">Amount of Questions </label>

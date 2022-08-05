@@ -18,7 +18,6 @@ export default function App() {
       return { ...prevFormData, [name]: value };
     });
   }
-  console.log(formData);
 
   return (
     <div className="container">
